@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://github.com/soundquiet/blog/"/>
-  <updated>2018-11-02T13:13:32.000Z</updated>
+  <updated>2020-03-31T15:47:15.173Z</updated>
   <id>https://github.com/soundquiet/blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>New page test</title>
+    <link href="https://github.com/soundquiet/blog/2020/03/31/New-page-test/"/>
+    <id>https://github.com/soundquiet/blog/2020/03/31/New-page-test/</id>
+    <published>2020-03-31T15:46:48.000Z</published>
+    <updated>2020-03-31T15:47:15.173Z</updated>
+    
+    <content type="html"><![CDATA[<p>test for sub page</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;test for sub page&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(6)</title>
