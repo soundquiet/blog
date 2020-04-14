@@ -57,7 +57,7 @@
 <meta property="og:site_name" content="soundquiet">
 <meta property="og:description" content="记录在2020年春项目中使用到的Python用法，包括统计检验和数据处理等方面。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-14T08:53:22.405Z">
+<meta property="og:updated_time" content="2020-04-14T09:00:43.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python用法小结">
 <meta name="twitter:description" content="记录在2020年春项目中使用到的Python用法，包括统计检验和数据处理等方面。">
@@ -224,7 +224,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-14 15:00:19 / Modified: 16:53:22" itemprop="dateCreated datePublished" datetime="2020-04-14T15:00:19+08:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 15:00:19 / Modified: 17:00:43" itemprop="dateCreated datePublished" datetime="2020-04-14T15:00:19+08:00">2020-04-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,8 +275,94 @@
 <h2 id="得到满足对应列条件的行"><a href="#得到满足对应列条件的行" class="headerlink" title="得到满足对应列条件的行"></a>得到满足对应列条件的行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data[(data.Date == <span class="string">'2020/3/3'</span>) &amp; (data.Province == <span class="string">'Shanghai'</span>) &amp; (data.Country == <span class="string">'China'</span>)]</span><br><span class="line"><span class="comment"># 得到数据中同时满足三个条件的行</span></span><br></pre></td></tr></table></figure>
 <h2 id="过滤不满足条件的行，生成新df"><a href="#过滤不满足条件的行，生成新df" class="headerlink" title="过滤不满足条件的行，生成新df"></a>过滤不满足条件的行，生成新df</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">condition = df.apply(<span class="keyword">lambda</span> x: x.col1 == <span class="number">0</span> <span class="keyword">and</span> x.col2== <span class="number">0</span> <span class="keyword">and</span> x.col3==<span class="number">0</span>, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">df_filter = df[~condition]</span><br></pre></td></tr></table></figure>
 <h2 id="修改指定行中指定列的值"><a href="#修改指定行中指定列的值" class="headerlink" title="修改指定行中指定列的值"></a>修改指定行中指定列的值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data.at[i,<span class="string">'column_name'</span>] = <span class="string">'new value'</span></span><br><span class="line"><span class="comment"># i为指定行的index</span></span><br></pre></td></tr></table></figure>
-<h2 id="Pandas-stack"><a href="#Pandas-stack" class="headerlink" title="Pandas stack()"></a>Pandas stack()</h2><p>在处理数据的时候，需要对某一份数据做处理。原数据是以这样的方式存储的：<br>省份 | 2020/3/1 |  2020/3/2 | 20202/3/3<br>-|-|-|-<br>广东 | 2 | 2 | 2<br>上海 | 2 | 2 | 2<br>北京 | 2 | 2 | 2</p>
-<p>希望修改为<br>日期 | 省份 | 人数 |<br>-|-|-<br>2020/3/1 | 广东 | 2 |<br>2020/3/1 | 上海 | 2 |<br>2020/3/1 | 北京 | 2 |<br>2020/3/2 | 广东 | 2 |<br>2020/3/2 | 上海 | 2 |<br>2020/3/2 | 北京 | 2 |<br>2020/3/3 | 广东 | 2 |<br>2020/3/3 | 上海 | 2 |<br>2020/3/3 | 北京 | 2 |</p>
+<h2 id="Pandas-stack"><a href="#Pandas-stack" class="headerlink" title="Pandas stack()"></a>Pandas stack()</h2><p>在处理数据的时候，需要对某一份数据做处理。原数据是以这样的方式存储的：</p>
+<table>
+<thead>
+<tr>
+<th>省份</th>
+<th>2020/3/1</th>
+<th>2020/3/2</th>
+<th>20202/3/3  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>广东</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>上海</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>北京</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>希望修改为</p>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>省份</th>
+<th>人数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020/3/1</td>
+<td>广东</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/1</td>
+<td>上海</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/1</td>
+<td>北京</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/2</td>
+<td>广东</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/2</td>
+<td>上海</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/2</td>
+<td>北京</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/3</td>
+<td>广东</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/3</td>
+<td>上海</td>
+<td>2 </td>
+</tr>
+<tr>
+<td>2020/3/3</td>
+<td>北京</td>
+<td>2 </td>
+</tr>
+</tbody>
+</table>
 <p>即将原来的每个数据作为以日期和省份为区别的一条记录。<br>最后使用了DataFrame中<code>stack()</code>来完成。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">new_data = data.set_index(<span class="string">'Province'</span>)</span><br><span class="line">new_data = new_data.stack()</span><br></pre></td></tr></table></figure>
 <h2 id="Dataframe的合并"><a href="#Dataframe的合并" class="headerlink" title="Dataframe的合并"></a>Dataframe的合并</h2><p>这次项目中运用到了两种合并，一种是df之间关于列的拼接，一种是df关于行的拼接。</p>
