@@ -57,17 +57,17 @@
 <meta property="og:site_name" content="soundquiet">
 <meta property="og:description" content="这一节(Lesson 4)更多关注一些设计的概念和注意事项。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/chartchooserincolor.jpg">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/missingdata_1.jpg">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/figure_ground.png">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/simplicity.png">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/liefactor.png">
-<meta property="og:image" content="https://github.com/images/blogs/dv&d3/lesson4/d3.png">
-<meta property="og:updated_time" content="2019-10-30T14:05:35.130Z">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/chartchooserincolor.jpg">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/missingdata_1.jpg">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/figure_ground.png">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/simplicity.png">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/liefactor.png">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/d3.png">
+<meta property="og:updated_time" content="2020-04-14T09:23:40.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Visualization and D3.js 笔记(3)">
 <meta name="twitter:description" content="这一节(Lesson 4)更多关注一些设计的概念和注意事项。">
-<meta name="twitter:image" content="https://github.com/images/blogs/dv&d3/lesson4/chartchooserincolor.jpg">
+<meta name="twitter:image" content="https://github.com/blog/images/blogs/dv&d3/lesson4/chartchooserincolor.jpg">
 
 <link rel="canonical" href="https://github.com/soundquiet/blog/2018/09/29/Data-Visualization-and-D3-js-笔记-3/">
 
@@ -237,7 +237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-10-30 22:05:35" itemprop="dateModified" datetime="2019-10-30T22:05:35+08:00">2019-10-30</time>
+                <time title="Modified: 2020-04-14 17:23:40" itemprop="dateModified" datetime="2020-04-14T17:23:40+08:00">2020-04-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,7 +268,7 @@
 <li>simple solution to solve problems</li>
 <li>choose the right tool (chart)</li>
 </ol>
-<p><img src="/images/blogs/dv&amp;d3/lesson4/chartchooserincolor.jpg" alt></p>
+<p><img src="/blog/images/blogs/dv&amp;d3/lesson4/chartchooserincolor.jpg" alt></p>
 <ul>
 <li><a href="http://www.perceptualedge.com/articles/ie/the_right_graph.pdf" target="_blank" rel="noopener">Selecting the Right Graph for Your Message </a></li>
 <li><a href="http://labs.juiceanalytics.com/chartchooser/index.html" target="_blank" rel="noopener">interactive chart chooser </a></li>
@@ -372,7 +372,7 @@
 <p><a href="https://designforhackers.com/blog/whitespace-113/" target="_blank" rel="noopener">Designing with White Space: Why 1+1=3</a></p>
 </blockquote>
 <h2 id="零数据和缺失数据"><a href="#零数据和缺失数据" class="headerlink" title="零数据和缺失数据"></a>零数据和缺失数据</h2><ol>
-<li><p>无标识<br>像著名的霍乱地图中，Brewery街道上没有染上霍乱的人，没有对应的图形。<br><img src="/images/blogs/dv&amp;d3/lesson4/missingdata_1.jpg" alt></p>
+<li><p>无标识<br>像著名的霍乱地图中，Brewery街道上没有染上霍乱的人，没有对应的图形。<br><img src="/blog/images/blogs/dv&amp;d3/lesson4/missingdata_1.jpg" alt></p>
 </li>
 <li><p>用颜色标识<br>比如，<a href="https://www.theguardian.com/world/interactive/2012/may/08/gay-rights-united-states" target="_blank" rel="noopener">Gay rights in the US, state by state</a>, 使用灰色来表示未有对应法律</p>
 </li>
@@ -397,16 +397,16 @@
 <h2 id="格式塔原理"><a href="#格式塔原理" class="headerlink" title="格式塔原理"></a>格式塔原理</h2><ol>
 <li>接近性：物理上接近的物体属于同一群体</li>
 <li>相似性：相似颜色、形状、大小或者方向的物体视为相关或从属同一群体</li>
-<li>图形与背影：观众会将即使是不同形状的物体和背景自动构成图形 （Viewers will perceive an object and a surface even in shapes are grouped together）<br><img src="/images/blogs/dv&amp;d3/lesson4/figure_ground.png" alt></li>
+<li>图形与背影：观众会将即使是不同形状的物体和背景自动构成图形 （Viewers will perceive an object and a surface even in shapes are grouped together）<br><img src="/blog/images/blogs/dv&amp;d3/lesson4/figure_ground.png" alt></li>
 <li>连续性：视觉倾向于寻找最平稳的路径并自然创造出连续性</li>
 <li>封闭性：视觉会自动填充图形为可识别的形状</li>
-<li>简单性：图像会被处理为简单的元素，而非复杂的形状。（Figures are seen as their simple elements instead of complicated shapes）<br><img src="/images/blogs/dv&amp;d3/lesson4/simplicity.png" alt></li>
+<li>简单性：图像会被处理为简单的元素，而非复杂的形状。（Figures are seen as their simple elements instead of complicated shapes）<br><img src="/blog/images/blogs/dv&amp;d3/lesson4/simplicity.png" alt></li>
 </ol>
 <blockquote>
 <p>参考<br><a href="https://www.slideshare.net/luisaepv/the-gestalt-laws-of-perception" target="_blank" rel="noopener">认知的格式塔原理</a><br><a href="http://www.storytellingwithdata.com/book/" target="_blank" rel="noopener">Storytelling with Data: A Data Visualization Guide for Business Professionals</a><br><a href="http://graphicdesign.spokanefalls.edu/tutorials/process/gestaltprinciples/gestaltprinc.htm" target="_blank" rel="noopener">The Gestalt Principles</a></p>
 </blockquote>
 <h2 id="图表的有效性"><a href="#图表的有效性" class="headerlink" title="图表的有效性"></a>图表的有效性</h2><h3 id="Data-Ink-Ratio"><a href="#Data-Ink-Ratio" class="headerlink" title="Data-Ink Ratio"></a>Data-Ink Ratio</h3><p>Data-Ink Ratio = Ink used to describe data / ink used to describe everything else</p>
-<h3 id="失真系数"><a href="#失真系数" class="headerlink" title="失真系数"></a>失真系数</h3><p>用于描述图表的完整性或图表展示数据的效果，通常期望在0.95~1.05之间。<br><img src="/images/blogs/dv&amp;d3/lesson4/liefactor.png" alt></p>
+<h3 id="失真系数"><a href="#失真系数" class="headerlink" title="失真系数"></a>失真系数</h3><p>用于描述图表的完整性或图表展示数据的效果，通常期望在0.95~1.05之间。<br><img src="/blog/images/blogs/dv&amp;d3/lesson4/liefactor.png" alt></p>
 <h2 id="图形语法"><a href="#图形语法" class="headerlink" title="图形语法"></a>图形语法</h2><ul>
 <li><a href="https://www.amazon.com/The-Grammar-Graphics-Statistics-Computing/dp/0387245448" target="_blank" rel="noopener">图形语法</a>  </li>
 <li><a href="https://www.science-craft.com/2014/07/08/introducing-the-grammar-of-graphics-plotting-concept/" target="_blank" rel="noopener">Introducing the Grammar of Graphics Plotting Concept</a></li>
@@ -440,7 +440,7 @@
 <li>连续数据 + 连续数据 x 笛卡尔坐标系 = 散点图</li>
 </ul>
 <p>你可以通过不同的方式组合这些常见元素，从而创建许多其他的图表。</p>
-<h3 id="图形语法与D3"><a href="#图形语法与D3" class="headerlink" title="图形语法与D3"></a>图形语法与D3</h3><p><img src="/images/blogs/dv&amp;d3/lesson4/d3.png" alt></p>
+<h3 id="图形语法与D3"><a href="#图形语法与D3" class="headerlink" title="图形语法与D3"></a>图形语法与D3</h3><p><img src="/blog/images/blogs/dv&amp;d3/lesson4/d3.png" alt></p>
 
     </div>
 

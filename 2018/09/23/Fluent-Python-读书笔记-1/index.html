@@ -57,12 +57,12 @@
 <meta property="og:site_name" content="soundquiet">
 <meta property="og:description" content="Chap 2 序列构成的数组2.1 内置序列类型 容器序列 存放的是所包含的任意类型的对象的引用。list, tuple, collections.deque等 扁平序列 存放的是值，是一段连续的内存空间，更为紧凑，但只能存放字符、字节和数值这种基础类型。str, bytes, bytearray, memoryview, array.array等    或者根据能否被修改来分类：  可变序列 l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/images/blogs/hash.png">
-<meta property="og:updated_time" content="2018-09-23T14:22:50.000Z">
+<meta property="og:image" content="https://github.com/blog/images/blogs/hash.png">
+<meta property="og:updated_time" content="2020-04-14T09:23:35.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fluent Python 读书笔记 (1)">
 <meta name="twitter:description" content="Chap 2 序列构成的数组2.1 内置序列类型 容器序列 存放的是所包含的任意类型的对象的引用。list, tuple, collections.deque等 扁平序列 存放的是值，是一段连续的内存空间，更为紧凑，但只能存放字符、字节和数值这种基础类型。str, bytes, bytearray, memoryview, array.array等    或者根据能否被修改来分类：  可变序列 l">
-<meta name="twitter:image" content="https://github.com/images/blogs/hash.png">
+<meta name="twitter:image" content="https://github.com/blog/images/blogs/hash.png">
 
 <link rel="canonical" href="https://github.com/soundquiet/blog/2018/09/23/Fluent-Python-读书笔记-1/">
 
@@ -224,10 +224,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2018-09-23 21:51:58 / Modified: 22:22:50" itemprop="dateCreated datePublished" datetime="2018-09-23T21:51:58+08:00">2018-09-23</time>
+              <time title="Created: 2018-09-23 21:51:58" itemprop="dateCreated datePublished" datetime="2018-09-23T21:51:58+08:00">2018-09-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-14 17:23:35" itemprop="dateModified" datetime="2020-04-14T17:23:35+08:00">2020-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -347,7 +353,7 @@
 <li>散列值和相等性<br>内置的hash()可以用于所有内置类型对象。自定义对象调用hash()运行的是自定义的<code>__hash__</code>。<br>如果两个对象在比较时是相等的，它们的散列值也必须相等。<br>在Python3.3之后，str, bytes和datetime对象的散列值计算时多了随机<strong>加盐</strong>的过程，所加盐值是Python进程内的一个常量，每次启动Python解释器会生成不同的盐值。这是为了防止DOS攻击。</li>
 <li>散列表算法  </li>
 </ol>
-<p><img src="/images/blogs/hash.png" alt></p>
+<p><img src="/blog/images/blogs/hash.png" alt></p>
 <h3 id="dict的实现及其导致的结果"><a href="#dict的实现及其导致的结果" class="headerlink" title="dict的实现及其导致的结果"></a>dict的实现及其导致的结果</h3><ol>
 <li>键必须是可散列的</li>
 <li>字典在内存上的开销巨大</li>
