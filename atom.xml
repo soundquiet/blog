@@ -5,9 +5,9 @@
   <subtitle>coding and ciuji</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://github.com/soundquiet/blog/"/>
+  <link href="https://soundquiet.github.io/blog/"/>
   <updated>2020-07-21T11:25:30.146Z</updated>
-  <id>https://github.com/soundquiet/blog/</id>
+  <id>https://soundquiet.github.io/blog/</id>
   
   <author>
     <name>Fuling Sun</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>MongoDB的基本命令小结</title>
-    <link href="https://github.com/soundquiet/blog/2020/MongoDB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%B0%8F%E7%BB%93/"/>
-    <id>https://github.com/soundquiet/blog/2020/MongoDB的基本命令小结/</id>
+    <link href="https://soundquiet.github.io/blog/2020/MongoDB%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%B0%8F%E7%BB%93/"/>
+    <id>https://soundquiet.github.io/blog/2020/MongoDB的基本命令小结/</id>
     <published>2020-07-21T08:56:26.000Z</published>
     <updated>2020-07-21T11:25:30.146Z</updated>
     
@@ -33,16 +33,16 @@
     
     
     
-      <category term="MongoDB" scheme="https://github.com/soundquiet/blog/tags/MongoDB/"/>
+      <category term="MongoDB" scheme="https://soundquiet.github.io/blog/tags/MongoDB/"/>
     
-      <category term="Docker" scheme="https://github.com/soundquiet/blog/tags/Docker/"/>
+      <category term="Docker" scheme="https://soundquiet.github.io/blog/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Python用法小结</title>
-    <link href="https://github.com/soundquiet/blog/2020/Python%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
-    <id>https://github.com/soundquiet/blog/2020/Python用法小结/</id>
+    <link href="https://soundquiet.github.io/blog/2020/Python%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93/"/>
+    <id>https://soundquiet.github.io/blog/2020/Python用法小结/</id>
     <published>2020-04-14T07:00:19.000Z</published>
     <updated>2020-04-14T09:00:43.776Z</updated>
     
@@ -55,17 +55,17 @@
     </summary>
     
     
-      <category term="数据处理" scheme="https://github.com/soundquiet/blog/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+      <category term="数据处理" scheme="https://soundquiet.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
     
     
-      <category term="Python" scheme="https://github.com/soundquiet/blog/tags/Python/"/>
+      <category term="Python" scheme="https://soundquiet.github.io/blog/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(6)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-6/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-6/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-6/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-6/</id>
     <published>2018-11-02T13:09:43.000Z</published>
     <updated>2020-04-14T09:23:36.177Z</updated>
     
@@ -78,19 +78,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Fluent Python 读书笔记(4)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-4/"/>
-    <id>https://github.com/soundquiet/blog/2018/Fluent-Python-读书笔记-4/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-4/"/>
+    <id>https://soundquiet.github.io/blog/2018/Fluent-Python-读书笔记-4/</id>
     <published>2018-11-02T13:03:47.000Z</published>
     <updated>2020-04-14T09:23:32.880Z</updated>
     
@@ -103,19 +103,19 @@
     </summary>
     
     
-      <category term="Fluent Python" scheme="https://github.com/soundquiet/blog/categories/Fluent-Python/"/>
+      <category term="Fluent Python" scheme="https://soundquiet.github.io/blog/categories/Fluent-Python/"/>
     
     
-      <category term="Python" scheme="https://github.com/soundquiet/blog/tags/Python/"/>
+      <category term="Python" scheme="https://soundquiet.github.io/blog/tags/Python/"/>
     
-      <category term="读书笔记" scheme="https://github.com/soundquiet/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://soundquiet.github.io/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Fluent Python 读书笔记(3)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-3/"/>
-    <id>https://github.com/soundquiet/blog/2018/Fluent-Python-读书笔记-3/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-3/"/>
+    <id>https://soundquiet.github.io/blog/2018/Fluent-Python-读书笔记-3/</id>
     <published>2018-10-14T06:56:25.000Z</published>
     <updated>2020-04-14T09:23:33.900Z</updated>
     
@@ -128,19 +128,19 @@
     </summary>
     
     
-      <category term="Fluent Python" scheme="https://github.com/soundquiet/blog/categories/Fluent-Python/"/>
+      <category term="Fluent Python" scheme="https://soundquiet.github.io/blog/categories/Fluent-Python/"/>
     
     
-      <category term="Python" scheme="https://github.com/soundquiet/blog/tags/Python/"/>
+      <category term="Python" scheme="https://soundquiet.github.io/blog/tags/Python/"/>
     
-      <category term="读书笔记" scheme="https://github.com/soundquiet/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://soundquiet.github.io/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(5)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-5/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-5/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-5/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-5/</id>
     <published>2018-10-14T06:49:31.000Z</published>
     <updated>2020-04-14T09:23:37.994Z</updated>
     
@@ -153,19 +153,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(4)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-4/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-4/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-4/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-4/</id>
     <published>2018-10-14T06:45:49.000Z</published>
     <updated>2020-04-14T09:23:39.490Z</updated>
     
@@ -178,19 +178,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(3)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-3/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-3/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-3/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-3/</id>
     <published>2018-09-29T08:41:32.000Z</published>
     <updated>2020-04-14T09:23:40.805Z</updated>
     
@@ -203,19 +203,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(2)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-2/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-2/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-2/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-2/</id>
     <published>2018-09-29T08:37:24.000Z</published>
     <updated>2020-04-14T09:23:42.237Z</updated>
     
@@ -228,19 +228,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Fluent Python 读书笔记(2)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2/"/>
-    <id>https://github.com/soundquiet/blog/2018/Fluent-Python-读书笔记-2/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2/"/>
+    <id>https://soundquiet.github.io/blog/2018/Fluent-Python-读书笔记-2/</id>
     <published>2018-09-29T08:35:12.000Z</published>
     <updated>2018-09-29T08:50:22.000Z</updated>
     
@@ -253,19 +253,19 @@
     </summary>
     
     
-      <category term="Fluent Python" scheme="https://github.com/soundquiet/blog/categories/Fluent-Python/"/>
+      <category term="Fluent Python" scheme="https://soundquiet.github.io/blog/categories/Fluent-Python/"/>
     
     
-      <category term="Python" scheme="https://github.com/soundquiet/blog/tags/Python/"/>
+      <category term="Python" scheme="https://soundquiet.github.io/blog/tags/Python/"/>
     
-      <category term="读书笔记" scheme="https://github.com/soundquiet/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://soundquiet.github.io/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Data Visualization and D3.js 笔记(1)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-1/"/>
-    <id>https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-1/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-%E7%AC%94%E8%AE%B0-1/"/>
+    <id>https://soundquiet.github.io/blog/2018/Data-Visualization-and-D3-js-笔记-1/</id>
     <published>2018-09-23T14:23:50.000Z</published>
     <updated>2020-04-14T09:23:43.551Z</updated>
     
@@ -283,19 +283,19 @@
     </summary>
     
     
-      <category term="Data Visualization and D3.js" scheme="https://github.com/soundquiet/blog/categories/Data-Visualization-and-D3-js/"/>
+      <category term="Data Visualization and D3.js" scheme="https://soundquiet.github.io/blog/categories/Data-Visualization-and-D3-js/"/>
     
     
-      <category term="data visualization" scheme="https://github.com/soundquiet/blog/tags/data-visualization/"/>
+      <category term="data visualization" scheme="https://soundquiet.github.io/blog/tags/data-visualization/"/>
     
-      <category term="d3.js" scheme="https://github.com/soundquiet/blog/tags/d3-js/"/>
+      <category term="d3.js" scheme="https://soundquiet.github.io/blog/tags/d3-js/"/>
     
   </entry>
   
   <entry>
     <title>Fluent Python 读书笔记 (1)</title>
-    <link href="https://github.com/soundquiet/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/"/>
-    <id>https://github.com/soundquiet/blog/2018/Fluent-Python-读书笔记-1/</id>
+    <link href="https://soundquiet.github.io/blog/2018/Fluent-Python-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/"/>
+    <id>https://soundquiet.github.io/blog/2018/Fluent-Python-读书笔记-1/</id>
     <published>2018-09-23T13:51:58.000Z</published>
     <updated>2020-04-14T09:23:35.232Z</updated>
     
@@ -315,19 +315,19 @@
     </summary>
     
     
-      <category term="Fluent Python" scheme="https://github.com/soundquiet/blog/categories/Fluent-Python/"/>
+      <category term="Fluent Python" scheme="https://soundquiet.github.io/blog/categories/Fluent-Python/"/>
     
     
-      <category term="Python" scheme="https://github.com/soundquiet/blog/tags/Python/"/>
+      <category term="Python" scheme="https://soundquiet.github.io/blog/tags/Python/"/>
     
-      <category term="读书笔记" scheme="https://github.com/soundquiet/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://soundquiet.github.io/blog/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>React学习笔记(1)</title>
-    <link href="https://github.com/soundquiet/blog/2018/React%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
-    <id>https://github.com/soundquiet/blog/2018/React学习笔记-1/</id>
+    <link href="https://soundquiet.github.io/blog/2018/React%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/"/>
+    <id>https://soundquiet.github.io/blog/2018/React学习笔记-1/</id>
     <published>2018-08-18T02:56:55.000Z</published>
     <updated>2018-08-18T03:51:36.000Z</updated>
     
@@ -344,7 +344,7 @@
     
     
     
-      <category term="React" scheme="https://github.com/soundquiet/blog/tags/React/"/>
+      <category term="React" scheme="https://soundquiet.github.io/blog/tags/React/"/>
     
   </entry>
   
