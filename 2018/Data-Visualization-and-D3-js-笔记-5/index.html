@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.ico">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Lesson 7讲了获取数据的途径、叙事结构的种类和用D3.js编程的实例.">
+<meta name="keywords" content="data visualization,d3.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Visualization and D3.js 笔记(5)">
+<meta property="og:url" content="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-5/index.html">
+<meta property="og:site_name" content="soundquiet">
+<meta property="og:description" content="Lesson 7讲了获取数据的途径、叙事结构的种类和用D3.js编程的实例.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson7/author-driven.png">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson7/viewer-driven.png">
+<meta property="og:image" content="https://github.com/blog/images/blogs/dv&d3/lesson7/exit.png">
+<meta property="og:updated_time" content="2020-04-14T09:23:37.994Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Data Visualization and D3.js 笔记(5)">
+<meta name="twitter:description" content="Lesson 7讲了获取数据的途径、叙事结构的种类和用D3.js编程的实例.">
+<meta name="twitter:image" content="https://github.com/blog/images/blogs/dv&d3/lesson7/author-driven.png">
+
+<link rel="canonical" href="https://github.com/soundquiet/blog/2018/Data-Visualization-and-D3-js-笔记-5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Data Visualization and D3.js 笔记(5) | soundquiet</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b4d3f50c64e17439a79abd12c4512c95";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">soundquiet</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">coding and ciuji</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="https://soundquiet.github.io/" rel="noopener" target="_blank"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://github.com/soundquiet/blog/blog/2018/Data-Visualization-and-D3-js-笔记-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/sfl.jpg">
+      <meta itemprop="name" content="Fuling Sun">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="soundquiet">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          Data Visualization and D3.js 笔记(5)
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-10-14 14:49:31" itemprop="dateCreated datePublished" datetime="2018-10-14T14:49:31+08:00">2018-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-14 17:23:37" itemprop="dateModified" datetime="2020-04-14T17:23:37+08:00">2020-04-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Data-Visualization-and-D3-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Data Visualization and D3.js</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Lesson 7讲了获取数据的途径、叙事结构的种类和用D3.js编程的实例.<br><a id="more"></a></p>
+<h1 id="Lesson-7-叙事结构"><a href="#Lesson-7-叙事结构" class="headerlink" title="Lesson 7 叙事结构"></a>Lesson 7 叙事结构</h1><h2 id="相关性与因果关系"><a href="#相关性与因果关系" class="headerlink" title="相关性与因果关系"></a>相关性与因果关系</h2><p><strong>相关性</strong>，correlation，A AND B<br><strong>因果关系</strong>，causation，A -&gt; B  </p>
+<p>A与B具有相关性不意味着它们有相关性。</p>
+<h2 id="新新闻主义"><a href="#新新闻主义" class="headerlink" title="新新闻主义"></a>新新闻主义</h2><p>更开放，故事是为数据而服务的，媒介通常是动态网页。</p>
+<p>传统数据新闻通常是用图表做故事叙述的辅佐，通常是静态网页、报刊杂志等。</p>
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><p><a href="http://datajournalismhandbook.org/1.0/en/getting_data_0.html" target="_blank" rel="noopener">A Five Minute Field Guide</a><br>如何获取想要的数据：</p>
+<ol>
+<li>精简搜索(Google)<ul>
+<li>搜索时包括数据内容和数据格式 eg: ‘filetype: xls’</li>
+<li>搜索部分URL eg: ‘inurl: downloads filetype:xls’ 会返回所有在地址中含’downloads’的xls文件</li>
+<li>不直接搜索内容， 而搜索可能存在目标数据的地方</li>
+</ul>
+</li>
+<li><p>浏览数据网站或服务机构</p>
+<blockquote>
+<p>Official data portals. The government’s willingness to release a given dataset will vary from country to country. A growing number of countries are launching data portals (inspired by the U.S.’s data.gov and the U.K.’s data.gov.uk) to promote the civic and commercial re-use of government information. An up-to-date, global index of such sites can be found at datacatalogs.org. Another handy site is the Guardian World Government Data, a meta search engine that includes many international government data catalogues.</p>
+<p>The Data Hub. A community-driven resource run by the Open Knowledge Foundation that makes it easy to find, share and reuse openly available sources of data, especially in ways that are machine-automated.</p>
+<p>ScraperWiki. an online tool to make the process of extracting “useful bits of data easier so they can be reused in other apps, or rummaged through by journalists and researchers.” Most of the scrapers and their databases are public and can be re-used.</p>
+<p>The World Bank and United Nations data portals provide high-level indicators for all countries, often for many years in the past.</p>
+<p>A number of startups are emerging, that aim to build communities around data sharing and re-sale. This includes Buzzdata — a place to share and collaborate on private and public datasets — and data shops such as Infochimps and DataMarket.</p>
+<p>DataCouch — A place to upload, refine, share &amp; visualize your data.</p>
+<p>An interesting Google subsidiary, Freebase, provides “an entity graph of people, places and things, built by a community that loves open data.”</p>
+<p>Research data. There are numerous national and disciplinary aggregators of research data, such as the UK Data Archive. While there will be lots of data that is free at the point of access, there will also be much data that requires a subscription, or which cannot be reused or redistributed without asking permission first.</p>
+</blockquote>
+</li>
+<li><p>利用论坛发问比如getthedata.org或Quora</p>
+</li>
+</ol>
+<hr>
+<p><a href="http://datajournalismhandbook.org/1.0/en/getting_data_3.html" target="_blank" rel="noopener">Getting Data from the Web</a><br>如果无法直接获取数据库，可以从网络上收集。</p>
+<h2 id="利用图表撒谎"><a href="#利用图表撒谎" class="headerlink" title="利用图表撒谎"></a>利用图表撒谎</h2><ol>
+<li>柱状图的y轴应从0开始，线图可以不用</li>
+<li>饼图会有混淆效果，可用<strong>堆叠条形图</strong>改进，以展示100%的数据意义</li>
+<li>线图的样本点采用、y轴起点可能会影响数据展示效果</li>
+</ol>
+<h2 id="偏差类型"><a href="#偏差类型" class="headerlink" title="偏差类型"></a>偏差类型</h2><ol>
+<li>作者偏差<br>利用visual encoding有意无意地篡改数据（图标撒谎）</li>
+<li>数据偏差<br>产生于数据收集过程</li>
+<li>读者偏差<br>读者的先入观念</li>
+</ol>
+<h2 id="叙事结构"><a href="#叙事结构" class="headerlink" title="叙事结构"></a>叙事结构</h2><ol>
+<li>Author-Driven Narratives<br>(常用于传统数据新闻叙述)<br><img src="/blog/images/blogs/dv&amp;d3/lesson7/author-driven.png" alt><br>特点：  </li>
+</ol>
+<ul>
+<li>strong ordering</li>
+<li>heavy messaging</li>
+<li>need for clarity &amp; speed</li>
+</ul>
+<ol start="2">
+<li>Viewer-Driven Naarratives<br>常用于新新闻主义<br><img src="/blog/images/blogs/dv&amp;d3/lesson7/viewer-driven.png" alt><br>特点：</li>
+</ol>
+<ul>
+<li>viewers ask question on their own</li>
+<li>explore data</li>
+<li>tell their own story</li>
+</ul>
+<ol start="3">
+<li>Martini Glass<br>更加复杂的Data Visualization，是上述二者的结合，先线性叙述，然后让读者自己探索数据。</li>
+</ol>
+<h2 id="揭秘D3-js"><a href="#揭秘D3-js" class="headerlink" title="揭秘D3.js"></a>揭秘D3.js</h2><h3 id="绑定数据"><a href="#绑定数据" class="headerlink" title="绑定数据"></a>绑定数据</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d3.select(<span class="string">'svg'</span>)</span><br><span class="line">  .selectAll(<span class="string">'circle'</span>)</span><br><span class="line">  .data(data)</span><br><span class="line">  .enter()</span><br><span class="line">  .append(<span class="string">'circle'</span>)</span><br></pre></td></tr></table></figure>
+<p>在未进行这段代码之前，<code>selectAll(&#39;circle&#39;)</code>返回的应该是空集，那么数据绑定到哪了?<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d3.select(<span class="string">'svg'</span>) <span class="comment">// select a container svg element on the page</span></span><br><span class="line">  .selectAll(<span class="string">'circle'</span>) <span class="comment">// create an empty selection to bind data</span></span><br><span class="line">  .data(data) <span class="comment">// bind data to the empty selection</span></span><br><span class="line">  .enter() <span class="comment">// select all bound data elements not displayed</span></span><br><span class="line">  .append(<span class="string">'circle'</span>) <span class="comment">// create svg element for the bound data</span></span><br></pre></td></tr></table></figure></p>
+<p>d3在与空集绑定数据时，会创建虚拟占位符来关联至数据得每一行。</p>
+<h3 id="enter-amp-amp-exit"><a href="#enter-amp-amp-exit" class="headerlink" title="enter() &amp;&amp; exit()"></a>enter() &amp;&amp; exit()</h3><p><img src="/blog/images/blogs/dv&amp;d3/lesson7/exit.png" alt><br><code>update</code>代表当前存在于html中，之前进行data绑定的元素<br><code>exit()</code>代表<code>enter()</code>的方面，表示html元素未与数据做绑定。用途：</p>
+<ul>
+<li>去除不再显示的元素</li>
+<li>在不同时间点的数据存在变化的动画中使用</li>
+<li>在初次绘制图表且拥有可供用户选择根据某个类别筛选的子选项时使用</li>
+</ul>
+<h3 id="使用D3-js绘制坐标轴"><a href="#使用D3-js绘制坐标轴" class="headerlink" title="使用D3.js绘制坐标轴"></a>使用D3.js绘制坐标轴</h3><ol>
+<li>定义区间<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time_extent = d3.extent(data, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d.date;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> count_extent = d3.extent(data, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d.attendance;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>为了安全，将日期数据转为JavaScript的日期对象，可以使用内置函数进行转换：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">format = <span class="string">"..."</span> <span class="comment">// 定义格式</span></span><br><span class="line">d3.tsv(<span class="string">"..."</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">    d.date = format.parse(d.date);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>将数据从初始值映射到实际的像素点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time_scale = d3.time.scale()</span><br><span class="line">                    .range([margin, width])</span><br><span class="line">                    .domain(time_extent);</span><br><span class="line"><span class="keyword">var</span> count_scale = d3.scale.linear()</span><br><span class="line">                    .range([height, margin])</span><br><span class="line">                    .domain(count_scale);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绘制轴</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time_axis = d3.svg.axis()</span><br><span class="line">                .scale(time_scale)</span><br><span class="line">                .ticks(d3.time.years, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> count_axis = d3.svg.axis()</span><br><span class="line">                .scale(count_scale)</span><br><span class="line">                .orient(<span class="string">"left"</span>); <span class="comment">// 将刻度绘制在轴路径的左边</span></span><br><span class="line">d3.select(<span class="string">'svg'</span>)</span><br><span class="line">  .append(<span class="string">'g'</span>)</span><br><span class="line">  .attr(<span class="string">'class'</span>, <span class="string">'x axis'</span>)</span><br><span class="line">  .attr(<span class="string">'transform'</span>, <span class="string">'translate(0, '</span> + height + <span class="string">')'</span>)</span><br><span class="line">  .call(time_axis)</span><br><span class="line">d3.select(<span class="string">'svg'</span>)</span><br><span class="line">  .append(<span class="string">'g'</span>)</span><br><span class="line">  .attr(<span class="string">'class'</span>, <span class="string">'y axis'</span>)</span><br><span class="line">  .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + margin + <span class="string">'0)'</span>)</span><br><span class="line">  .call(count_axis)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>call()</code>将存取对象传递值函数调用链。<br><code>transform</code>属性用于移动元素（这里是坐标轴）在<code>svg</code>中的位置。</p>
+<h3 id="绘制legend"><a href="#绘制legend" class="headerlink" title="绘制legend"></a>绘制legend</h3><p>其实还是正常画法，D3.js没有专门的绘制legend的API。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> legend = svg.append(<span class="string">'g'</span>)</span><br><span class="line">                .attr(<span class="string">'class'</span>, <span class="string">'legend'</span>)</span><br><span class="line">                .attr(<span class="string">'transform'</span>, <span class="string">'translate('</span> + (width - <span class="number">30</span>) + <span class="string">','</span> + <span class="number">10</span> +<span class="string">')'</span>)</span><br><span class="line">                .selectAll(<span class="string">'g'</span>)</span><br><span class="line">                .data([<span class="string">'Home Team'</span>, <span class="string">'Others'</span>])</span><br><span class="line">                .enter()</span><br><span class="line">                .append(<span class="string">'g'</span>);</span><br><span class="line">legend.append(<span class="string">'circle'</span>)</span><br><span class="line">      .attr(<span class="string">'cy'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">30</span> * i;</span><br><span class="line">      &#125;)</span><br><span class="line">      .attr(<span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(d == <span class="string">'Home Team'</span>)</span><br><span class="line">            <span class="keyword">return</span> radius * multiplier;</span><br><span class="line">          <span class="keyword">else</span>  <span class="keyword">return</span> radius;</span><br><span class="line">      &#125;);</span><br><span class="line">legend.append(<span class="string">'text'</span>)</span><br><span class="line">      .attr(<span class="string">'y'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> i * <span class="number">30</span> + <span class="number">5</span>;</span><br><span class="line">      &#125;)</span><br><span class="line">      .attr(<span class="string">'x'</span>, radius * <span class="number">5</span>)</span><br><span class="line">      .text(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> d;</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>对于<code>text</code>元素来说，<code>x</code>和<code>y</code>定义了开始画文本的左下角的位置.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/data-visualization/" rel="tag"># data visualization</a>
+              <a href="/blog/tags/d3-js/" rel="tag"># d3.js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/blog/2018/Data-Visualization-and-D3-js-笔记-4/" rel="next" title="Data Visualization and D3.js 笔记(4)">
+                  <i class="fa fa-chevron-left"></i> Data Visualization and D3.js 笔记(4)
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/blog/2018/Fluent-Python-读书笔记-3/" rel="prev" title="Fluent Python 读书笔记(3)">
+                  Fluent Python 读书笔记(3) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lesson-7-叙事结构"><span class="nav-number">1.</span> <span class="nav-text">Lesson 7 叙事结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关性与因果关系"><span class="nav-number">1.1.</span> <span class="nav-text">相关性与因果关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新新闻主义"><span class="nav-number">1.2.</span> <span class="nav-text">新新闻主义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数据"><span class="nav-number">1.3.</span> <span class="nav-text">获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用图表撒谎"><span class="nav-number">1.4.</span> <span class="nav-text">利用图表撒谎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#偏差类型"><span class="nav-number">1.5.</span> <span class="nav-text">偏差类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叙事结构"><span class="nav-number">1.6.</span> <span class="nav-text">叙事结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#揭秘D3-js"><span class="nav-number">1.7.</span> <span class="nav-text">揭秘D3.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定数据"><span class="nav-number">1.7.1.</span> <span class="nav-text">绑定数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enter-amp-amp-exit"><span class="nav-number">1.7.2.</span> <span class="nav-text">enter() &amp;&amp; exit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用D3-js绘制坐标轴"><span class="nav-number">1.7.3.</span> <span class="nav-text">使用D3.js绘制坐标轴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制legend"><span class="nav-number">1.7.4.</span> <span class="nav-text">绘制legend</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Fuling Sun"
+    src="/blog/images/sfl.jpg">
+  <p class="site-author-name" itemprop="name">Fuling Sun</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Friends
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://ciuji.me/" title="http://ciuji.me/" rel="noopener" target="_blank">ciuji</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://lianqing11.github.io/" title="https://lianqing11.github.io/" rel="noopener" target="_blank">LianQing</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fuling Sun</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'b604845ecbd0c13cb82d',
+      clientSecret: '262a84fa3d903d2933b70fe9fa90a5db8ed57333',
+      repo: 'soundquiet.github.io',
+      owner: 'soundquiet',
+      admin: ['soundquiet'],
+      id: '063c09fd1e1a23b1b2df5f4f9137250a',
+        language: '',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>
